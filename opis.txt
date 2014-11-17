@@ -1,0 +1,4 @@
+localhost - localhost ok!
+localhost - heroku    not
+heroku    - heroku    not
+heroku    - localhost ok!

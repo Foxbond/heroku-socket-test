@@ -6,7 +6,7 @@ var app = express();
 var server = http.createServer(app);
 var io = sio.listen(server);
 
-
+io.set("origins","*:*");
 
 server.listen(process.env.PORT || 80, function (){
 	var addr = server.address();
