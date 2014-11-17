@@ -29,7 +29,10 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
 
-server.listen(process.env.PORT || 5000);
+server.listen(process.env.PORT || 80, function (){
+	var addr = server.address();
+  console.log('   app listening '+JSON.stringify(addr));
+});
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
