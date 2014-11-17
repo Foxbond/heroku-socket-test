@@ -13,6 +13,7 @@ server.listen(process.env.PORT || 80, function (){
 	console.log('App listening '+JSON.stringify(addr));
 });
 
+/*
 var allowCrossDomain = function(req, res, next) {
   var allowedOrigins, origin;
   allowedOrigins = ["http://localhost", "http://foxclick.heroku.com"];
@@ -24,7 +25,7 @@ var allowCrossDomain = function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
   }
   return next();
-};
+}; */
 
 app.use(allowCrossDomain);
 
