@@ -6,7 +6,8 @@ var app = express();
 var server = http.createServer(app);
 var io = sio.listen(server);
 
-io.set("origins","*:*");
+//io.set("origins","*:*");
+io.origins("*:*");
 
 server.listen(process.env.PORT || 80, function (){
 	var addr = server.address();
@@ -25,9 +26,9 @@ var allowCrossDomain = function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
   }
   return next();
-}; */
+}; 
 
-app.use(allowCrossDomain);
+app.use(allowCrossDomain);*/
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
