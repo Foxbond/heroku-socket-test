@@ -29,7 +29,7 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
 
-server.listen(process.env.PORT || 80, function (){
+server.listen(process.env.PORT || 80, 'http://foxclick.heroku.com', function (){
 	var addr = server.address();
   console.log('   app listening '+JSON.stringify(addr));
 });
