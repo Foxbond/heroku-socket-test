@@ -6,6 +6,8 @@ var app = express();
 var server = http.createServer(app);
 var io = sio.listen(server);
 
+
+console.log('origins-> '+io.origins());
 //io.set("origins","*:*");
 io.origins("*:*");
 
