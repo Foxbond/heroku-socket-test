@@ -12,6 +12,8 @@ io.on('connection', function(socket){
   });
 });
 
+
+io.set("origins","*");
 var port = process.env.PORT || 5000;
 
 http.listen(port, function(){
