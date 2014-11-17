@@ -1,3 +1,4 @@
+/*
 var app = require('express')();
 
 app.use(function(req, res, next) {
@@ -16,18 +17,28 @@ http.listen(port, function(){
   console.log('listening on *:'+port);
 });
 
+
+
+
+var io = require('socket.io')(http);
+*************/
+
+
+var express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
+
+server.listen(process.env.PORT || 5000);
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-
-var io = require('socket.io')(http);
-
-io.on('connection', function(socket){
+io.sockets.on('connection', function(socket){
 console.log("user connected");
 
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
 });
-
