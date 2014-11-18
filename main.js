@@ -16,21 +16,18 @@ server.listen(process.env.PORT || 80, function (){
 	console.log('App listening '+JSON.stringify(addr));
 });
 
-/*
+
 var allowCrossDomain = function(req, res, next) {
-  var allowedOrigins, origin;
-  allowedOrigins = ["http://localhost", "http://foxclick.heroku.com"];
-  origin = req.header("Origin");
-  if (allowedOrigins.indexOf(origin) >= 0) {
-    res.header("Access-Control-Allow-Origin", origin);
+	console.log(req.header("Origin"));
+    res.header('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-  }
-  return next();
+    res.header('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+    res.header('Access-Control-Allow-Headers', '*');
+	res.header('Access-Control-Max-Age', 3628800);
+	return next();
 }; 
 
-app.use(allowCrossDomain);*/
+app.use(allowCrossDomain);
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
